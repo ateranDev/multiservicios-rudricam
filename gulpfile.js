@@ -6,7 +6,6 @@ const sass = gulpSass(dartSass);
 
 export function js(done) {
   src("src/js/app.js").pipe(dest("build/js"));
-
   done();
 }
 
@@ -21,4 +20,5 @@ export function dev() {
   watch("src/scss/**/*.scss", css);
 }
 
+export const build = series(js, css);
 export default series(js, css, dev);

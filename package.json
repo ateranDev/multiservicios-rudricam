@@ -4,8 +4,9 @@
   "description": "landing-page",
   "main": "index.js",
   "scripts": {
-    "sass": "sass --watch src/scss:dist/css",
-    "dev": "gulp"
+    "sass": "sass src/scss:dist/css",
+    "dev": "gulp",
+    "build": "gulp build"
   },
   "author": "ateran",
   "license": "ISC",
