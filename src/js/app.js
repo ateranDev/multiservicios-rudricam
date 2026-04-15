@@ -7,7 +7,6 @@ document.addEventListener("DOMContentLoaded", function () {
     navegacion.classList.toggle("active");
   });
 
-  // Cerrar al hacer click en un enlace (importante en One Page)
   const enlaces = document.querySelectorAll(".navegacion-principal a");
   enlaces.forEach((link) => {
     link.addEventListener("click", () => {

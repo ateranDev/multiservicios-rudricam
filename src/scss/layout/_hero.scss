@@ -66,28 +66,13 @@
     animation-delay: 0.5s;
   }
 
-  .btn-hero {
-    display: inline-block;
-    padding: 1.5rem 4rem;
-    background-color: v.$primary-orange;
-    color: v.$bg-light;
-    border-radius: 0.5rem;
-    font-weight: 900;
-    text-transform: uppercase;
-    transition: all 0.3s ease;
-    border: 2px solid v.$primary-orange;
-    animation-delay: 0.8s;
-
-    &:hover {
-      background-color: transparent;
-      color: v.$primary-orange;
-      transform: translateY(-3px);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-    }
-  }
   a {
     display: inline-block;
-    padding: 1.4rem 3.5rem;
+    padding: 1rem 2rem;
+    @include m.tablet {
+      padding: 1.4rem 3.5rem;
+    }
+
     background-color: v.$primary-orange;
     color: v.$bg-light;
     font-weight: 700;
