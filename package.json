@@ -1,0 +1,17 @@
+{
+  "name": "multiservicios-rudricam-sass",
+  "version": "1.0.0",
+  "description": "landing-page",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass --watch src/scss:dist/css",
+    "dev": "gulp"
+  },
+  "author": "ateran",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^5.0.1",
+    "gulp-sass": "^6.0.1",
+    "sass": "^1.99.0"
+  }
+}

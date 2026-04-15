@@ -1,0 +1,160 @@
+@use "base/variables" as v;
+@use "base/mixins" as m;
+
+.header {
+  background-color: v.$primary-gray;
+  padding: 2rem 0;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  @include m.tablet {
+    padding: 3rem 0;
+  }
+}
+
+.contenedor-header {
+  @include m.contenedor;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+
+  .logo-texto {
+    font-size: 2.8rem;
+    font-weight: 900;
+    color: v.$bg-light;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    display: flex;
+    align-items: center;
+    transition: transform 0.3s ease;
+
+    span {
+      color: v.$primary-orange;
+      font-weight: 300;
+      margin-left: 2px;
+    }
+
+    &::before {
+      content: "";
+      width: 12px;
+      height: 12px;
+      background-color: v.$primary-orange;
+      margin-right: 1rem;
+      border-radius: 2px;
+    }
+  }
+}
+
+// BOTÓN HAMBURGUESA
+.mobile-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+
+  @include m.tablet {
+    display: none;
+  }
+
+  span {
+    display: block;
+    width: 30px;
+    height: 3px;
+    background-color: v.$bg-light;
+    transition: all 0.3s ease;
+    transform-origin: left;
+  }
+
+  // Animación a "X"
+  &.active {
+    span:nth-child(1) {
+      transform: rotate(45deg);
+      background-color: v.$primary-orange;
+    }
+    span:nth-child(2) {
+      opacity: 0;
+    }
+    span:nth-child(3) {
+      transform: rotate(-45deg);
+      background-color: v.$primary-orange;
+    }
+  }
+}
+
+.navegacion-principal {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: v.$primary-gray;
+  padding: 3rem 0;
+  gap: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+
+  &.active {
+    display: flex;
+  }
+
+  @include m.tablet {
+    display: flex;
+    flex-direction: row;
+    position: static;
+    width: auto;
+    padding: 0;
+    margin-top: 0;
+    gap: 1rem;
+    background-color: transparent;
+    border: none;
+  }
+
+  a {
+    color: v.$bg-light;
+    font-size: 1.5rem;
+    font-weight: 600;
+    padding: 1rem 1.5rem;
+    transition: color 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+
+    &:hover {
+      color: v.$primary-orange;
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      width: 0;
+      height: 2px;
+      background: v.$primary-orange;
+      transition: width 0.3s;
+      margin-top: 5px;
+    }
+
+    &:hover::after {
+      width: 100%;
+    }
+  }
+
+  .btn-contacto {
+    background-color: v.$primary-orange;
+    color: v.$bg-light;
+    padding: 1rem 2.5rem;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 1.4rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+}

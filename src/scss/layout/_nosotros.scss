@@ -1,0 +1,123 @@
+@use "base/variables" as v;
+@use "base/mixins" as m;
+
+.nosotros-remodelado {
+  padding: 10rem 0;
+  background-color: #ffffff;
+  overflow: hidden;
+
+  .grid-nosotros {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 8rem;
+    align-items: center;
+
+    @include m.tablet {
+      grid-template-columns: 1.2fr 1fr;
+    }
+  }
+}
+
+.nosotros-visual {
+  position: relative;
+  padding: 2rem;
+
+  .decoracion-numero {
+    position: absolute;
+    top: -4rem;
+    left: -2rem;
+    font-size: 12rem;
+    font-weight: 900;
+    color: rgba(0, 0, 0, 0.03); // Número gigante de fondo, muy sutil
+    line-height: 1;
+    z-index: 0;
+  }
+
+  .marco-imagen {
+    position: relative;
+    z-index: 2;
+
+    img {
+      width: 100%;
+      filter: grayscale(100%);
+      transition:
+        filter 0.5s ease,
+        transform 0.5s ease;
+      box-shadow: 30px 30px 60px rgba(0, 0, 0, 0.1);
+
+      &:hover {
+        filter: grayscale(0%);
+        transform: scale(1.02);
+      }
+    }
+  }
+
+  .bloque-acento {
+    position: absolute;
+    bottom: -2rem;
+    right: -1rem;
+    width: 60%;
+    height: 40%;
+    background-color: v.$primary-orange;
+    z-index: 1; // Detrás de la imagen pero sobre el fondo
+  }
+}
+
+.nosotros-info {
+  .titulo-seccion {
+    font-size: clamp(3rem, 4vw, 5rem);
+    color: v.$primary-gray;
+    line-height: 1;
+    margin-bottom: 3rem;
+    font-weight: 900;
+    text-transform: uppercase;
+
+    .resalte {
+      color: v.$primary-orange;
+      display: block;
+      font-size: 0.8em;
+      letter-spacing: 2px;
+    }
+  }
+
+  .lead {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: v.$primary-gray;
+    margin-bottom: 2rem;
+    line-height: 1.4;
+  }
+
+  .cuerpo {
+    font-size: 1.7rem;
+    line-height: 1.8;
+    color: #666;
+    margin-bottom: 4rem;
+    max-width: 50rem;
+  }
+
+  .stats-modernos {
+    display: flex;
+    gap: 5rem;
+    padding-top: 4rem;
+    border-top: 1px solid #eee;
+
+    .stat-item {
+      .valor {
+        display: block;
+        font-size: 4.5rem;
+        font-weight: 900;
+        color: v.$primary-gray;
+        line-height: 1;
+      }
+
+      .etiqueta {
+        font-size: 1.2rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: v.$primary-orange;
+        font-weight: 700;
+      }
+    }
+  }
+}

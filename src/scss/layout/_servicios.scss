@@ -1,0 +1,106 @@
+@use "base/variables" as v;
+@use "base/mixins" as m;
+
+.servicios {
+  padding: 10rem 0;
+  background-color: #fcfcfc;
+
+  // Estilos del Encabezado (Minimalista/Pro)
+  .encabezado-seccion {
+    margin-bottom: 8rem;
+    max-width: 70rem;
+
+    .badge {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      color: v.$primary-orange;
+      text-transform: uppercase;
+      font-weight: 800;
+      font-size: 1.3rem;
+      letter-spacing: 4px;
+      margin-bottom: 2rem;
+
+      &::before {
+        content: "";
+        width: 4rem;
+        height: 2px;
+        background-color: v.$primary-orange;
+      }
+    }
+
+    .titulo-moderno {
+      font-size: clamp(3rem, 5vw, 4.5rem); // Tamaño fluido
+      font-weight: 900;
+      color: v.$primary-gray;
+      line-height: 1.1;
+      text-align: left;
+      margin-bottom: 2.5rem;
+
+      span {
+        color: v.$primary-orange;
+      }
+    }
+
+    .descripcion-seccion {
+      font-size: 1.8rem;
+      color: #777;
+      border-left: 3px solid #eee;
+      padding-left: 2.5rem;
+      line-height: 1.6;
+    }
+  }
+}
+
+.listado-servicios {
+  display: grid;
+  gap: 3rem;
+  @include m.tablet {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.servicio {
+  background-color: v.$bg-light;
+  padding: 5rem 3.5rem;
+  border-radius: 4px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  overflow: hidden;
+
+  &:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  }
+
+  .icono-svg {
+    width: 6rem;
+    height: 6rem;
+    color: v.$primary-orange; // Aquí controlas el color del SVG
+    margin-bottom: 3rem;
+
+    svg {
+      width: 100%;
+      height: 100%;
+      transition: transform 0.3s ease;
+    }
+  }
+
+  &:hover .icono-svg svg {
+    transform: rotate(-10deg) scale(1.1);
+  }
+
+  h4 {
+    font-size: 2.2rem;
+    font-weight: 900;
+    margin-bottom: 1.5rem;
+    color: v.$primary-gray;
+  }
+
+  p {
+    font-size: 1.6rem;
+    color: #666;
+    line-height: 1.7;
+  }
+}

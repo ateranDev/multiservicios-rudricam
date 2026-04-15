@@ -1,0 +1,120 @@
+@use "base/variables" as v;
+@use "base/mixins" as m;
+
+.hero {
+  background-image:
+    linear-gradient(to right, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.4) 100%),
+    url("../../src/img/hero.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  min-height: 95vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.contenido-hero {
+  @include m.contenedor;
+  width: 90%;
+
+  @include m.tablet {
+    width: 60%;
+  }
+
+  h2,
+  p,
+  .btn-hero {
+    opacity: 0;
+    animation-name: entradaHero;
+    animation-duration: 3s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+  }
+
+  h2 {
+    font-size: 4rem;
+    line-height: 1.1;
+    margin-bottom: 2rem;
+    color: v.$bg-light;
+    text-transform: uppercase;
+    position: relative;
+    padding-left: 1.5rem;
+    animation-delay: 0.2s;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 5px;
+      background-color: v.$primary-orange;
+    }
+
+    @include m.tablet {
+      font-size: 5.5rem;
+    }
+  }
+
+  p {
+    font-size: 1.8rem;
+    margin-bottom: 4rem;
+    max-width: 50rem;
+    line-height: 1.6;
+    color: v.$bg-light;
+    animation-delay: 0.5s;
+  }
+
+  .btn-hero {
+    display: inline-block;
+    padding: 1.5rem 4rem;
+    background-color: v.$primary-orange;
+    color: v.$bg-light;
+    border-radius: 0.5rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    border: 2px solid v.$primary-orange;
+    animation-delay: 0.8s;
+
+    &:hover {
+      background-color: transparent;
+      color: v.$primary-orange;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    }
+  }
+  a {
+    display: inline-block;
+    padding: 1.4rem 3.5rem;
+    background-color: v.$primary-orange;
+    color: v.$bg-light;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-radius: 4px;
+    transition:
+      background-color 0.3s ease,
+      transform 0.2s ease;
+
+    &:hover {
+      background-color: v.$accent-light;
+      transform: scale(1.05);
+    }
+
+    &:active {
+      transform: scale(0.98);
+    }
+  }
+}
+
+@keyframes entradaHero {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

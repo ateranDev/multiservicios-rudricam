@@ -1,0 +1,25 @@
+$fuente_principal: "Montserrat", sans-serif;
+
+/* Colores Principales (Brand) - Ajustados a Premium */
+$primary-orange: #c29d59; /* Dorado mate para acentos y CTAs */
+$primary-dark: #0f172a; /* Azul Oxford profundo para fondos principales */
+$primary-gray: #1e293b; /* Azul pizarra para secciones secundarias */
+
+/* Colores de Acompañamiento */
+$accent-light: #b08d4a; /* Un dorado más saturado para hovers */
+$bg-light: #f8fafc; /* Gris gélido muy claro para el fondo general */
+
+/* Texto */
+$text-main: #1e293b; /* Azul oscuro para lectura profesional */
+$text-muted: #64748b; /* Gris azulado suave para descripciones */
+$text-on-dark: #f8fafc; /* Blanco roto para fondos oscuros */
+
+/* Estado y Bordes */
+$border-color: #e2e8f0; /* Gris claro moderno para líneas */
+$success: #10b981; /* Verde esmeralda para éxitos */
+
+// M-Queries
+$phone: 480px;
+$tablet: 768px;
+$desktop: 1200px;
+$desktopXL: 1400px;
